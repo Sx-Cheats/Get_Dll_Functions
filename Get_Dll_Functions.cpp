@@ -50,7 +50,7 @@ void ViewExportFunctionOfDlls(string name)
     {
        for(int i=0; i<export_directory->NumberOfNames;i++)
     { 
-        printf("\n\t\t----------------\n\n\t\t[+] Function Name : %s\n\t\t| |\n\t\t[+] function RVA  : 0x%x\n\t\t| |\n\t\t[+] function Address: 0x%x\n", (char*)(entry0+*name_table), adress_table[i],(entry0+adress_table[i]) );
+        printf("\n\t\t----------------\n\n\t\t[+] Function Name : %s\n\t\t| |\n\t\t[+] function RVA  : 0x%x\n\t\t| |\n\t\t[+] function Address: 0x%x\n", (entry0+*name_table), adress_table[i],(entry0+adress_table[i]) );
         name_table++;
         adress_table++;
     } 
