@@ -18,8 +18,6 @@ namespace Colorama
     };
 }
 
-
-
 void ViewExportFunctionOfDlls(string name)
 {
    HANDLE handledll = LoadLibraryA(name.c_str());
