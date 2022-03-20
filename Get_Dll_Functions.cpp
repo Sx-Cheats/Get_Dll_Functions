@@ -45,8 +45,8 @@ void ViewExportFunctionOfDlls(string name)
     DWORD* name_table = (DWORD*)(entry0+export_directory->AddressOfNames);
     DWORD* adress_table = (DWORD*)(entry0+export_directory->AddressOfFunctions);
     
-    // Export by name, the NumberOfFunctions & NumberOfFunctions are symetric
-    if(export_directory->NumberOfFunctions == export_directory->NumberOfFunctions)
+    // Export by name, the NumberOfFunctions & NumberOfNames are symetric
+    if(export_directory->NumberOfFunctions == export_directory->NumberOfNames)
     {
        for(int i=0; i<export_directory->NumberOfNames;i++)
     { 
