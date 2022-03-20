@@ -41,7 +41,7 @@ void ViewExportFunctionOfDlls(string name)
     }while(*((section_header++)->Name));
     
     PIMAGE_EXPORT_DIRECTORY export_directory = (PIMAGE_EXPORT_DIRECTORY)(entry0+Export_Directory_RVA);
-    printf("\n\tDll Name : %s [ RVA : 0x%x | Address : %x]\n\n",  (char*)(entry0 + export_directory->Name),export_directory->Name,(DWORD)(entry0+export_directory->Name)) ;
+    printf("\n\tDll Name : %s [ RVA : 0x%x | Address : %x ]\n\n", (entry0 + export_directory->Name),export_directory->Name,(entry0+export_directory->Name)) ;
     DWORD* name_table = (DWORD*)(entry0+export_directory->AddressOfNames);
     DWORD* adress_table = (DWORD*)(entry0+export_directory->AddressOfFunctions);
     
@@ -50,7 +50,7 @@ void ViewExportFunctionOfDlls(string name)
     {
        for(int i=0; i<export_directory->NumberOfNames;i++)
     { 
-        printf("\n\t\t----------------\n\n\t\t[+] Function Name : %s\n\t\t| |\n\t\t[+] function RVA  : 0x%x\n\t\t| |\n\t\t[+] function Address: 0x%x\n", (char*)(entry0+*name_table), adress_table[i],(DWORD)(entry0+adress_table[i]) );
+        printf("\n\t\t----------------\n\n\t\t[+] Function Name : %s\n\t\t| |\n\t\t[+] function RVA  : 0x%x\n\t\t| |\n\t\t[+] function Address: 0x%x\n", (char*)(entry0+*name_table), adress_table[i],(entry0+adress_table[i]) );
         name_table++;
         adress_table++;
     } 
