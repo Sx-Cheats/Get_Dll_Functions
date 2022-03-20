@@ -41,6 +41,7 @@ void ViewExportFunctionOfDlls(string name)
            break;
         }
     }while(*((section_header++)->Name));
+    
     PIMAGE_EXPORT_DIRECTORY export_directory = (PIMAGE_EXPORT_DIRECTORY)(entry0+Export_Directory_RVA);
     printf("\n\tDll Name : %s [ RVA : 0x%x | Address : %x]\n\n",  (char*)(entry0 + export_directory->Name),export_directory->Name,(DWORD)(entry0+export_directory->Name)) ;
     DWORD* name_table = (DWORD*)(entry0+export_directory->AddressOfNames);
