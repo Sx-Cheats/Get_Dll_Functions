@@ -18,7 +18,7 @@ namespace Colorama
     };
 }
 
-void ViewExportFunctionOfDlls(string name)
+void ViewExportFunctionOfDll(string name)
 {
    HANDLE handledll = LoadLibraryA(name.c_str());
    DWORD entry0 = (DWORD)handledll;
@@ -61,7 +61,7 @@ void ViewExportFunctionOfDlls(string name)
 int main(int argc, char* argv[])
 {
     Colorama::set(FOREGROUND_RED | FOREGROUND_GREEN, true);
-    ViewExportFunctionOfDlls("msvcrt.dll");
+    ViewExportFunctionOfDll("msvcrt.dll");
     system("pause");
     return 0;
 };
