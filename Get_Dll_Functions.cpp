@@ -44,15 +44,12 @@ void ViewExportFunctionOfDll(string name)
     printf("\n\tDll Name : %s [ RVA : 0x%x | Address : %x ]\n\n", (entry0 + export_directory->Name),export_directory->Name,(entry0+export_directory->Name)) ;
     DWORD* name_table = (DWORD*)(entry0+export_directory->AddressOfNames);
     DWORD* adress_table = (DWORD*)(entry0+export_directory->AddressOfFunctions);
-    
-    // Export by name, the NumberOfFunctions & NumberOfNames are symetric
+
     if(export_directory->NumberOfFunctions == export_directory->NumberOfNames)
     {
        for(int i=0; i<export_directory->NumberOfNames;i++)
     { 
-        printf("\n\t\t----------------\n\n\t\t[+] Function Name : %s\n\t\t| |\n\t\t[+] function RVA  : 0x%x\n\t\t| |\n\t\t[+] function Address: 0x%x\n", (entry0+*name_table), adress_table[i],(entry0+adress_table[i]) );
-        name_table++;
-        adress_table++;
+        printf("\n\t\t----------------\n\n\t\t[+] Function Name : %s\n\t\t| |\n\t\t[+] function RVA  : 0x%x\n\t\t| |\n\t\t[+] function Address: 0x%x\n", (entry0+name_table[i]), adress_table[i],(entry0+adress_table[i]) );
     } 
     printf("\n\t\t----------------\n\n");
     }
@@ -65,4 +62,3 @@ int main(int argc, char* argv[])
     system("pause");
     return 0;
 };
-
