@@ -1,2 +1,2 @@
 # Get_Dll_Functions
-Get functions of dll using C++ (compiling using g++ version 6.3.0+)
+Get functions of dll (by name) using C++ (compiling using g++ version 6.3.0+)
